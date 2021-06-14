@@ -22,11 +22,8 @@
 # waive the privileges and immunities granted to it by virtue of its status
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 
-FROM nginx
+FROM bitnami/nginx
 
-RUN rm /etc/nginx/conf.d/default.conf
-ADD nginx.conf /etc/nginx/conf.d/
-
-ADD .htpasswd /etc/nginx/conf/.htpasswd
+ADD .htpasswd /opt/bitnami/nginx/.htpasswd
 ADD nginx.crt /etc/ssl/nginx.crt
 ADD nginx.key /etc/ssl/nginx.key
